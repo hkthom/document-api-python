@@ -1,0 +1,104 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "document-api-python\n\n\n\n\nThis repo contains Python source and example files for the Tableau Document API. We're just getting started and have plans to expand what you find here. Help us by submitting feedback, issues, and pull requests!\n\n\nDocument API\n\n\nThe Document API provides a supported way to programmatically make updates to Tableau workbook and data source files. If you've been making changes to these file types by directly updating the XML--that is, by XML hacking--this SDK is for you :)\n\n\nFeatures include:\n- Support for 9.X, and 10.X workbook and data source files\n  - Including TDSX and TWBX files\n- Getting connection information from data sources and workbooks\n  - Server Name\n  - Username\n  - Database Name\n  - Authentication Type\n  - Connection Type\n- Updating connection information in workbooks and data sources\n  - Server Name\n  - Username\n  - Database Name\n- Getting Field information from data sources and workbooks\n  - Get all fields in a data source\n  - Get all fields in use by certain sheets in a workbook\n\n\nWe don't yet support creating files from scratch, adding extracts into workbooks or data sources, or updating field information\n\n\nGetting Started\n\n\nTo use this SDK, you must have Python installed. You can use either 2.7.X or 3.3 and later.\n\n\nInstalling the latest stable version (preferred)\n\n\npip install tableaudocumentapi\n\n\n\n\nInstalling From Source\n\n\nDownload the \n.zip\n file that contains the SDK. Unzip the file and then run the following command:\n\n\npip install -e <directory containing setup.py>\n\n\n\n\nInstalling the Development Version from Git\n\n\nOnly do this if you know you want the development version, no guarantee that we won't break APIs during development\n\n\npip install git+https://github.com/tableau/document-api-python.git@development\n\n\n\n\nIf you go this route, but want to switch back to the non-development version, you need to run the following command before installing the stable version:\n\n\npip uninstall tableaudocumentapi\n\n\n\n\nBasics\n\n\nThe following example shows the basic syntax for using the Document API to update a workbook:\n\n\nfrom tableaudocumentapi import Workbook\n\nsourceWB = Workbook('WorkbookToUpdate.twb')\n\nsourceWB.datasources[0].connections[0].server = \"MY-NEW-SERVER\"\nsourceWB.datasources[0].connections[0].dbname = \"NEW-DATABASE\"\nsourceWB.datasources[0].connections[0].username = \"benl\"\n\nsourceWB.save()\n\n\n\n\nWith Data Integration in Tableau 10, a data source can have multiple connections. To access the connections simply index them like you would datasources.\n\n\nfrom tableaudocumentapi import Workbook\n\nsourceWB = Workbook('WorkbookToUpdate.twb')\n\nsourceWB.datasources[0].connections[0].server = \"MY-NEW-SERVER\"\nsourceWB.datasources[0].connections[0].dbname = \"NEW-DATABASE\"\nsourceWB.datasources[0].connections[0].username = \"benl\"\n\nsourceWB.datasources[0].connections[1].server = \"MY-NEW-SERVER\"\nsourceWB.datasources[0].connections[1].dbname = \"NEW-DATABASE\"\nsourceWB.datasources[0].connections[1].username = \"benl\"\n\n\nsourceWB.save()\n\n\n\n\nNotes\n\n\n\n\nImport the \nWorkbook\n object from the \ntableaudocumentapi\n module.\n\n\nTo open a workbook, instantiate a \nWorkbook\n object and pass the file name as the first argument.\n\n\nThe \nWorkbook\n object exposes a list of \ndatasources\n in the workbook\n\n\nEach data source object has a \nconnection\n object that supports a \nserver\n, \ndbname\n, and \nusername\n property.\n\n\nSave changes to the workbook by calling the \nsave\n or \nsave_as\n method.\n\n\n\n\n\n\nIntroduced In v 2.4\n\n\nThis call was added in version Tableau 10.3, XSDv2.5\n\n\n\n\nExamples\n\n\nThe downloadable package contains several example scripts that show more detailed usage of the Document API.",
+            "title": "Intro"
+        },
+        {
+            "location": "/#document-api-python",
+            "text": "This repo contains Python source and example files for the Tableau Document API. We're just getting started and have plans to expand what you find here. Help us by submitting feedback, issues, and pull requests!",
+            "title": "document-api-python"
+        },
+        {
+            "location": "/#document-api",
+            "text": "The Document API provides a supported way to programmatically make updates to Tableau workbook and data source files. If you've been making changes to these file types by directly updating the XML--that is, by XML hacking--this SDK is for you :)  Features include:\n- Support for 9.X, and 10.X workbook and data source files\n  - Including TDSX and TWBX files\n- Getting connection information from data sources and workbooks\n  - Server Name\n  - Username\n  - Database Name\n  - Authentication Type\n  - Connection Type\n- Updating connection information in workbooks and data sources\n  - Server Name\n  - Username\n  - Database Name\n- Getting Field information from data sources and workbooks\n  - Get all fields in a data source\n  - Get all fields in use by certain sheets in a workbook  We don't yet support creating files from scratch, adding extracts into workbooks or data sources, or updating field information",
+            "title": "Document API"
+        },
+        {
+            "location": "/#getting-started",
+            "text": "To use this SDK, you must have Python installed. You can use either 2.7.X or 3.3 and later.",
+            "title": "Getting Started"
+        },
+        {
+            "location": "/#installing-the-latest-stable-version-preferred",
+            "text": "pip install tableaudocumentapi",
+            "title": "Installing the latest stable version (preferred)"
+        },
+        {
+            "location": "/#installing-from-source",
+            "text": "Download the  .zip  file that contains the SDK. Unzip the file and then run the following command:  pip install -e <directory containing setup.py>",
+            "title": "Installing From Source"
+        },
+        {
+            "location": "/#installing-the-development-version-from-git",
+            "text": "Only do this if you know you want the development version, no guarantee that we won't break APIs during development  pip install git+https://github.com/tableau/document-api-python.git@development  If you go this route, but want to switch back to the non-development version, you need to run the following command before installing the stable version:  pip uninstall tableaudocumentapi",
+            "title": "Installing the Development Version from Git"
+        },
+        {
+            "location": "/#basics",
+            "text": "The following example shows the basic syntax for using the Document API to update a workbook:  from tableaudocumentapi import Workbook\n\nsourceWB = Workbook('WorkbookToUpdate.twb')\n\nsourceWB.datasources[0].connections[0].server = \"MY-NEW-SERVER\"\nsourceWB.datasources[0].connections[0].dbname = \"NEW-DATABASE\"\nsourceWB.datasources[0].connections[0].username = \"benl\"\n\nsourceWB.save()  With Data Integration in Tableau 10, a data source can have multiple connections. To access the connections simply index them like you would datasources.  from tableaudocumentapi import Workbook\n\nsourceWB = Workbook('WorkbookToUpdate.twb')\n\nsourceWB.datasources[0].connections[0].server = \"MY-NEW-SERVER\"\nsourceWB.datasources[0].connections[0].dbname = \"NEW-DATABASE\"\nsourceWB.datasources[0].connections[0].username = \"benl\"\n\nsourceWB.datasources[0].connections[1].server = \"MY-NEW-SERVER\"\nsourceWB.datasources[0].connections[1].dbname = \"NEW-DATABASE\"\nsourceWB.datasources[0].connections[1].username = \"benl\"\n\n\nsourceWB.save()  Notes   Import the  Workbook  object from the  tableaudocumentapi  module.  To open a workbook, instantiate a  Workbook  object and pass the file name as the first argument.  The  Workbook  object exposes a list of  datasources  in the workbook  Each data source object has a  connection  object that supports a  server ,  dbname , and  username  property.  Save changes to the workbook by calling the  save  or  save_as  method.    Introduced In v 2.4  This call was added in version Tableau 10.3, XSDv2.5",
+            "title": "Basics"
+        },
+        {
+            "location": "/#examples",
+            "text": "The downloadable package contains several example scripts that show more detailed usage of the Document API.",
+            "title": "Examples"
+        },
+        {
+            "location": "/user-guide/",
+            "text": "Concepts\n\n\nImagine a world without kittens. What a world that would be.\nThis is why I am going to discuss our document object model. You see\nit all starts with Workbooks, Datasources, and Connections. There are\nalso Fields.",
+            "title": "User Guide"
+        },
+        {
+            "location": "/user-guide/#concepts",
+            "text": "Imagine a world without kittens. What a world that would be.\nThis is why I am going to discuss our document object model. You see\nit all starts with Workbooks, Datasources, and Connections. There are\nalso Fields.",
+            "title": "Concepts"
+        },
+        {
+            "location": "/contributing/",
+            "text": "Contributing\n\n\nWe welcome contributions to this project!\n\n\nContribution can include, but are not limited to, any of the following:\n\n\n\n\nFile an Issue\n\n\nRequest a Feature\n\n\nImplement a Requested Feature\n\n\nFix an Issue/Bug\n\n\nAdd/Fix documentation\n\n\n\n\nContributions must follow the guidelines outlined on the \nTableau Organization\n page, though filing an issue or requesting\na feature do not require the CLA.\n\n\nIssues and Feature Requests\n\n\nTo submit an issue/bug report, or to request a feature, please submit a \ngithub issue\n to the repo.\n\n\nIf you are submiting a bug report, please provide as much information as you can, including clear and concise repro steps, attaching any necessary\nfiles to assist in the repro.  \nBe sure to scrub the files of any potentially sensitive information.  Issues are public.\n\n\nFor a feature request, please try to describe the scenario you are trying to accomplish that requires the feature.  This will help us understand\nthe limitations that you are running into, and provide us with a use case to know if we've satisfied your request.\n\n\nFixes, Implementations, and Documentation\n\n\nFor all other things, please submit a PR that includes the fix, documentation, or new code that you are trying to contribute.  More information on\ncreating a PR can be found in the \ngithub documentation\n\n\nIf the feature is complex or has multiple solutions that could be equally appropriate approaches, it would be helpful to file an issue to discuss the\ndesign trade-offs of each solution before implementing, to allow us to collectively arrive at the best solution, which most likely exists in the middle\nsomewhere.",
+            "title": "Contributing"
+        },
+        {
+            "location": "/contributing/#contributing",
+            "text": "We welcome contributions to this project!  Contribution can include, but are not limited to, any of the following:   File an Issue  Request a Feature  Implement a Requested Feature  Fix an Issue/Bug  Add/Fix documentation   Contributions must follow the guidelines outlined on the  Tableau Organization  page, though filing an issue or requesting\na feature do not require the CLA.",
+            "title": "Contributing"
+        },
+        {
+            "location": "/contributing/#issues-and-feature-requests",
+            "text": "To submit an issue/bug report, or to request a feature, please submit a  github issue  to the repo.  If you are submiting a bug report, please provide as much information as you can, including clear and concise repro steps, attaching any necessary\nfiles to assist in the repro.   Be sure to scrub the files of any potentially sensitive information.  Issues are public.  For a feature request, please try to describe the scenario you are trying to accomplish that requires the feature.  This will help us understand\nthe limitations that you are running into, and provide us with a use case to know if we've satisfied your request.",
+            "title": "Issues and Feature Requests"
+        },
+        {
+            "location": "/contributing/#fixes-implementations-and-documentation",
+            "text": "For all other things, please submit a PR that includes the fix, documentation, or new code that you are trying to contribute.  More information on\ncreating a PR can be found in the  github documentation  If the feature is complex or has multiple solutions that could be equally appropriate approaches, it would be helpful to file an issue to discuss the\ndesign trade-offs of each solution before implementing, to allow us to collectively arrive at the best solution, which most likely exists in the middle\nsomewhere.",
+            "title": "Fixes, Implementations, and Documentation"
+        },
+        {
+            "location": "/api-ref/",
+            "text": "Workbooks\n\n\nclass Workbook(filename)\n\n\nThe Workbook class represents a tableau workbook. It may be either a TWB or TWBX, and the library will handle packaging and unpackaging automatically. \n\n\nfilename\n is a string representing the path of the file\n\n\nWorkbook.datasources\n returns a list of data sources\n\n\n\n\nAdded in v2.3\n\n\n\n\nDatasources\n\n\nclass Datasource(dsxml, filename=None)\n\n\nConnections\n\n\nclass Connection(connxml)\n \n\n\nFields\n\n\nclass Workbook(column_xml=None, metadata_xml=None)",
+            "title": "API Ref"
+        },
+        {
+            "location": "/api-ref/#workbooks",
+            "text": "class Workbook(filename)  The Workbook class represents a tableau workbook. It may be either a TWB or TWBX, and the library will handle packaging and unpackaging automatically.   filename  is a string representing the path of the file  Workbook.datasources  returns a list of data sources   Added in v2.3",
+            "title": "Workbooks"
+        },
+        {
+            "location": "/api-ref/#datasources",
+            "text": "class Datasource(dsxml, filename=None)",
+            "title": "Datasources"
+        },
+        {
+            "location": "/api-ref/#connections",
+            "text": "class Connection(connxml)",
+            "title": "Connections"
+        },
+        {
+            "location": "/api-ref/#fields",
+            "text": "class Workbook(column_xml=None, metadata_xml=None)",
+            "title": "Fields"
+        }
+    ]
+}
