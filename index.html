@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
   <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="./css/highlight.css">
+  <link href="./css/extra.css" rel="stylesheet">
 
   
   <script>
@@ -60,9 +61,13 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#document-api-python">document-api-python</a></li>
+                <li class="toctree-l3"><a href="#tableau-document-api">Tableau Document API</a></li>
                 
-                    <li><a class="toctree-l4" href="#document-api">Document API</a></li>
+                    <li><a class="toctree-l4" href="#getting-started">Getting Started</a></li>
+                
+                    <li><a class="toctree-l4" href="#basics">Basics</a></li>
+                
+                    <li><a class="toctree-l4" href="#examples">Examples</a></li>
                 
             
             </ul>
@@ -71,24 +76,47 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Documentation</span></li>
+
+        
+            
     <li class="toctree-l1 ">
         <a class="" href="user-guide/">User Guide</a>
         
     </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="contributing/">Contributing</a>
+
         
-    </li>
-<li>
-          
-            <li>
+            
     <li class="toctree-l1 ">
         <a class="" href="api-ref/">API Ref</a>
         
     </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="contributing/">Contributing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="devguide/">Devguide</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
         </ul>
@@ -116,6 +144,10 @@
     <li>Intro</li>
     <li class="wy-breadcrumbs-aside">
       
+        
+          <a href="https://github.com/tableau/document-api-python/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
     </li>
   </ul>
   <hr/>
@@ -123,46 +155,54 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="document-api-python">document-api-python</h1>
-<p><a href="https://travis-ci.org/tableau/document-api-python"><img alt="Build Status" src="https://travis-ci.org/tableau/document-api-python.svg?branch=master" /></a></p>
+                <h2 id="tableau-document-api">Tableau Document API</h2>
 <p>This repo contains Python source and example files for the Tableau Document API. We're just getting started and have plans to expand what you find here. Help us by submitting feedback, issues, and pull requests!</p>
-<h2 id="document-api">Document API</h2>
 <p>The Document API provides a supported way to programmatically make updates to Tableau workbook and data source files. If you've been making changes to these file types by directly updating the XML--that is, by XML hacking--this SDK is for you :)</p>
-<p>Features include:
-- Support for 9.X, and 10.X workbook and data source files
-  - Including TDSX and TWBX files
-- Getting connection information from data sources and workbooks
-  - Server Name
-  - Username
-  - Database Name
-  - Authentication Type
-  - Connection Type
-- Updating connection information in workbooks and data sources
-  - Server Name
-  - Username
-  - Database Name
-- Getting Field information from data sources and workbooks
-  - Get all fields in a data source
-  - Get all fields in use by certain sheets in a workbook</p>
+<p>Features include:</p>
+<ul>
+<li>Support for 9.X, and 10.X workbook and data source files<ul>
+<li>Including TDSX and TWBX files</li>
+</ul>
+</li>
+<li>Getting connection information from data sources and workbooks<ul>
+<li>Server Name</li>
+<li>Username</li>
+<li>Database Name</li>
+<li>Authentication Type</li>
+<li>Connection Type</li>
+</ul>
+</li>
+<li>Updating connection information in workbooks and data sources<ul>
+<li>Server Name</li>
+<li>Username</li>
+<li>Database Name</li>
+</ul>
+</li>
+<li>Getting Field information from data sources and workbooks<ul>
+<li>Get all fields in a data source</li>
+<li>Get all fields in use by certain sheets in a workbook</li>
+</ul>
+</li>
+</ul>
 <p>We don't yet support creating files from scratch, adding extracts into workbooks or data sources, or updating field information</p>
 <h3 id="getting-started">Getting Started</h3>
 <p>To use this SDK, you must have Python installed. You can use either 2.7.X or 3.3 and later.</p>
 <h4 id="installing-the-latest-stable-version-preferred">Installing the latest stable version (preferred)</h4>
-<pre><code class="text">pip install tableaudocumentapi
+<pre><code class="shell">pip install tableaudocumentapi
 </code></pre>
 
 <h4 id="installing-from-source">Installing From Source</h4>
 <p>Download the <code>.zip</code> file that contains the SDK. Unzip the file and then run the following command:</p>
-<pre><code class="text">pip install -e &lt;directory containing setup.py&gt;
+<pre><code class="shell">pip install -e &lt;directory containing setup.py&gt;
 </code></pre>
 
 <h4 id="installing-the-development-version-from-git">Installing the Development Version from Git</h4>
 <p><em>Only do this if you know you want the development version, no guarantee that we won't break APIs during development</em></p>
-<pre><code class="text">pip install git+https://github.com/tableau/document-api-python.git@development
+<pre><code class="shell">pip install git+https://github.com/tableau/document-api-python.git@development
 </code></pre>
 
 <p>If you go this route, but want to switch back to the non-development version, you need to run the following command before installing the stable version:</p>
-<pre><code class="text">pip uninstall tableaudocumentapi
+<pre><code class="shell">pip uninstall tableaudocumentapi
 </code></pre>
 
 <h3 id="basics">Basics</h3>
@@ -227,6 +267,8 @@ sourceWB.save()
   <div role="contentinfo">
     <!-- Copyright etc -->
     
+      <p>© Tableau Software</p>
+    
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -242,6 +284,8 @@ sourceWB.save()
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+          <a href="https://github.com/tableau/document-api-python/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
       
       
         <span style="margin-left: 15px"><a href="user-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
@@ -254,5 +298,5 @@ sourceWB.save()
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-21 00:16:01.286962
+Build Date UTC : 2016-10-24 00:10:21.947293
 -->

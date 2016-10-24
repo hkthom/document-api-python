@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/extra.css" rel="stylesheet">
 
   
   <script>
@@ -62,20 +63,18 @@
 <li>
           
             <li>
+    <ul class="subnav">
+    <li><span>Documentation</span></li>
+
+        
+            
     <li class="toctree-l1 ">
         <a class="" href="../user-guide/">User Guide</a>
         
     </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../contributing/">Contributing</a>
+
         
-    </li>
-<li>
-          
-            <li>
+            
     <li class="toctree-l1 current">
         <a class="current" href="./">API Ref</a>
         
@@ -96,6 +95,31 @@
             </ul>
         
     </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../contributing/">Contributing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../devguide/">Devguide</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
         </ul>
@@ -119,9 +143,17 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Documentation &raquo;</li>
+        
+      
     
     <li>API Ref</li>
     <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/tableau/document-api-python/" class="icon icon-github"> Edit on GitHub</a>
+        
       
     </li>
   </ul>
@@ -131,19 +163,35 @@
             <div class="section">
               
                 <h1 id="workbooks">Workbooks</h1>
-<p><code>class Workbook(filename)</code></p>
+<pre><code class="python">class Workbook(filename):
+</code></pre>
+
 <p>The Workbook class represents a tableau workbook. It may be either a TWB or TWBX, and the library will handle packaging and unpackaging automatically. </p>
-<p><em><code>filename</code></em> is a string representing the path of the file</p>
-<p><strong>Workbook.datasources</strong> returns a list of data sources</p>
-<div class="admonition rip">
-<p class="admonition-title">Added in v2.3</p>
-</div>
+<p><strong>Params:</strong><br />
+<code>filename</code> takes a string representing the path to the workbook file.  </p>
+<p><strong>Raises:</strong><br />
+<code>TableauVersionNotSupportedException</code> if the workbook is not a supported version
+<code>TableauInvalidFileException</code> if the file is not a valid tableau workbook file</p>
+<p><strong>Methods:</strong><br />
+<code>Workbook.save(self):</code><br />
+Saves any changes to the workbook to the existing file</p>
+<p><code>Workbook.save_as(self, new_filename):</code><br />
+Saves any changes to the workbook to a new file specified by the <code>new_file</code> parameter</p>
+<p><strong>Properities:</strong><br />
+<code>self.worksheets:</code> Returns a list of worksheets found in the workbook<br />
+<code>self.datasources:</code> Returns a list of Datasource objects found in the workbook<br />
+<code>self.filename:</code> Returns the filename of the workbook  </p>
 <h1 id="datasources">Datasources</h1>
-<p><code>class Datasource(dsxml, filename=None)</code></p>
+<pre><code class="python">class Datasource(dsxml, filename=None)
+</code></pre>
+
 <h1 id="connections">Connections</h1>
-<p><code>class Connection(connxml)</code> </p>
+<pre><code class="python">class Connection(connxml)
+</code></pre>
+
 <h1 id="fields">Fields</h1>
-<p><code>class Workbook(column_xml=None, metadata_xml=None)</code></p>
+<pre><code class="python">class Workbook(column_xml=None, metadata_xml=None)
+</code></pre>
               
             </div>
           </div>
@@ -151,8 +199,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../contributing/" class="btn btn-neutral" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../user-guide/" class="btn btn-neutral" title="User Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -161,6 +211,8 @@
 
   <div role="contentinfo">
     <!-- Copyright etc -->
+    
+      <p>© Tableau Software</p>
     
   </div>
 
@@ -177,9 +229,13 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+          <a href="https://github.com/tableau/document-api-python/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
-        <span><a href="../contributing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+        <span><a href="../user-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

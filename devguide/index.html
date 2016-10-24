@@ -8,7 +8,7 @@
   
   
   
-  <title>User Guide - Tableau Document API (Python)</title>
+  <title>Devguide - Tableau Document API (Python)</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -24,9 +24,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "User Guide";
-    var mkdocs_page_input_path = "user-guide.md";
-    var mkdocs_page_url = "/user-guide/";
+    var mkdocs_page_name = "Devguide";
+    var mkdocs_page_input_path = "devguide.md";
+    var mkdocs_page_url = "/devguide/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -68,15 +68,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">User Guide</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#concepts">Concepts</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../user-guide/">User Guide</a>
         
     </li>
 
@@ -104,8 +97,21 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../devguide/">Devguide</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Devguide</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#developer-guide">Developer Guide</a></li>
+                
+                    <li><a class="toctree-l4" href="#making-your-first-patch">Making your first patch</a></li>
+                
+                    <li><a class="toctree-l4" href="#updating-documentation">Updating Documentation</a></li>
+                
+                    <li><a class="toctree-l4" href="#running-tests">Running Tests</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -135,11 +141,11 @@
     
       
         
-          <li>Documentation &raquo;</li>
+          <li>Contributing &raquo;</li>
         
       
     
-    <li>User Guide</li>
+    <li>Devguide</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -153,11 +159,48 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="concepts">Concepts</h1>
-<p>Imagine a world without kittens. What a world that would be.
-This is why I am going to discuss our document object model. You see
-it all starts with Workbooks, Datasources, and Connections. There are
-also Fields.</p>
+                <h2 id="developer-guide">Developer Guide</h2>
+<h3 id="making-your-first-patch">Making your first patch</h3>
+<ol>
+<li>Make sure you've signed the CLA</li>
+<li>
+<p>Clone the repo</p>
+<pre><code class="shell">git clone http://github.com/tableau/document-api-python
+</code></pre>
+
+</li>
+<li>
+<p>Run the tests to make sure everything is peachy</p>
+<pre><code class="shell">python setup.py test
+</code></pre>
+
+</li>
+<li>
+<p>Set up the feature, fix, or documentation branch.<br />
+It is recommended to use the format [issue#]-[type]-[description] (e.g. 13-fix-connection-bug)</p>
+<pre><code class="shell">git checkout -b 13-feature-new-stuff
+</code></pre>
+
+</li>
+<li>
+<p>Code and Commit!<br />
+    Here's a quick checklist for ensuring a good diff:</p>
+<ul>
+<li>The diff touches the minimal amount of files possible while still fufilling the purpose of the diff</li>
+<li>The diff uses Unix line endings</li>
+<li>The diff adheres to our PEP8 style guides. If you've cloned the repo you can run <code>pycodestyle .</code></li>
+</ul>
+</li>
+<li>Add Tests  </li>
+<li>Update Documentation<br />
+    Our documentation is written in markdown and built with <a href="http://www.mkdocs.org">Mkdocs</a>. More information on how to update and build the docs can be found <a href="#updating-documentation">here</a></li>
+<li>Run the tests again and make sure they pass!</li>
+<li>Submit to your fork</li>
+<li>Submit a PR</li>
+<li>Wait for a review, and address any feedback.</li>
+</ol>
+<h3 id="updating-documentation">Updating Documentation</h3>
+<h3 id="running-tests">Running Tests</h3>
               
             </div>
           </div>
@@ -165,10 +208,8 @@ also Fields.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api-ref/" class="btn btn-neutral float-right" title="API Ref">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Intro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contributing/" class="btn btn-neutral" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -198,10 +239,8 @@ also Fields.</p>
           <a href="https://github.com/tableau/document-api-python/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../contributing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../api-ref/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
