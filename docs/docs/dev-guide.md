@@ -1,5 +1,7 @@
-Developer Guide
----------------
+---
+title: Developer Guide
+layout: docs
+---
 
 ### Making your first patch
 

@@ -1,4 +1,7 @@
-# Contributing
+---
+title: Contributing
+layout: docs
+---
 
 We welcome contributions to this project!
 

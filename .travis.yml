@@ -1,22 +1,49 @@
 language: python
-python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "pypy"
-# command to install dependencies
-install:
-  - "pip install -e ."
-  - "pip install pep8"
-# command to run tests
-script:
-  # Tests
-  - python setup.py test
-  # pep8
-  - pep8 .
-  # Examples
-  - (cd "samples/replicate-workbook" && python replicate_workbook.py)
-  - (cd "samples/list-tds-info" && python list_tds_info.py)
-  - (cd "samples/show-fields" && python show_fields.py)
 
+env:
+  global:
+    secure: !!binary |
+      elBwQ2pFZ0wyR3FCQ0xwT2F5LzdCL2JCTHBNSk02ZGJzcDk3UHBGUkNFMmZBWVovTlpFSHB6YVJP
+      Ykg2NGRMcGlPUDZpQyt3aER4ekpxRTA4aFlXRXc1N0MvcGNjaWZhWldJMGxoM2NsT3VMWDV1Sm90
+      QVpmZi9vWjREM2N0NzhhNXZxQ1lTTVU2ZXVmSTZDbXM5d3g2L3Rha0c3MGxBQzJvcVM0R0lFUXV4
+      anNTZFlBcnlsd2xNOHJybkxNUHVlL3NBc2dPcUZnTW1HNzNkUWt2SDBKWmw5VUxuem54dUp2bHRN
+      R3Q0b1RVa2gxN1dGMWlyUFlDNldqWWRpQXNQeWF1K0NCL3gyY25EdGJFOEVpczl1RHZWZWxFZFc3
+      K0dkWVF4b1NjME4zWEMvRi9IR0w5L2xKVDF4RVR6c3hDSk4vUERWMW9QVUJwUjJ0RE4yM3RZdWNt
+      SXhnbzExTWJRUjdoTU5YeVNSNGlseUJKWURxODNpbGNjZWhMdFBTNGhSL3JTcUduU0svV2hPeW1M
+      d1BRcitZK1luWG8zRTVlUHhzYmJIcmxyejZjbjF6bnlUeXBJL0Rmc2cwWXZtTkV6ekZlalVFbnJI
+      aTR5eDBuN1dZUElwMGd4N3d4ZUpFUmdWNm5XQW9Pb0w0UVNIU1lLWG54Rjk0NkZ5Y3J0QmlVc3hS
+      NFlNRHlMY1lKRGUxTWZTblVWUFhtSEYzUmJlVmxIQzFKWHZ0RittUFFGSXdlSjZHaWRMTE1rSlhC
+      VkVjNFBMbnk1VkNOMHRPWUhpdlU4MDYwSGg4K0N0Rk9zWnh1VUM3OWRhNDRvQ2huSnBiM0VtUHUw
+      OWVxRjRuVGk0R3NGdUNZVFFubi9aMHBCdVZCRUpVNWtoTTJzZGNyWEJiWlFKeTRQVWppYkNSc1U9
+
+install:
+- pip install -e .
+- pip install pycodestyle
+- pip install mkdocs
+- pip install pymdown-extensions
+- chmod +x ./deploy-docs.sh
+
+matrix:
+  include:
+  - os: linux
+    python: 2.7
+  - os: linux
+    python: 3.3
+  - os: linux
+    python: 3.4
+  - os: linux
+    env: BUILD_DOCS="true"
+    python: 3.5
+  - os: linux
+    python: pypy
+
+script:
+- python setup.py test
+- pycodestyle .
+- (cd "samples/replicate-workbook" && python replicate_workbook.py)
+- (cd "samples/list-tds-info" && python list_tds_info.py)
+- (cd "samples/show-fields" && python show_fields.py)
+- mkdocs build -s --clean
+
+after_success:
+  - bash deploy-docs.sh

@@ -1,4 +1,12 @@
-# Workbooks
+---
+title: API reference
+layout: docs
+---
+
+* TOC
+{:toc}
+
+## Workbooks
 ```python
 class Workbook(filename):
 ```
@@ -24,17 +32,17 @@ Saves any changes to the workbook to a new file specified by the `new_file` para
 `self.datasources:` Returns a list of Datasource objects found in the workbook  
 `self.filename:` Returns the filename of the workbook  
 
-#Datasources
+## Datasources
 ```python
 class Datasource(dsxml, filename=None)
 ```
 
-# Connections
+## Connections
 ```python
 class Connection(connxml)
 ```
 
-# Fields
+## Fields
 ```python
 class Workbook(column_xml=None, metadata_xml=None)
 ```
