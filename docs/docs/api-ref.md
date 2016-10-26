@@ -1,10 +1,12 @@
 ---
 title: API reference
-layout: docs
+layout: garbage
 ---
 
 * TOC
 {:toc}
+
+[BROKEN LINK](lol.md)
 
 ## Workbooks
 ```python
