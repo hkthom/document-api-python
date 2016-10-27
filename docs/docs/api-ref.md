@@ -1,38 +1,42 @@
 ---
 title: API reference
-layout: garbage
+layout: docs
 ---
 
 * TOC
 {:toc}
-
-[BROKEN LINK](lol.md)
 
 ## Workbooks
 ```python
 class Workbook(filename):
 ```
 
-The Workbook class represents a tableau workbook. It may be either a TWB or TWBX, and the library will handle packaging and unpackaging automatically. 
+The Workbook class represents a tableau workbook. It may be either a TWB or TWBX, and the library will handle packaging and unpackaging automatically.
 
-**Params:**  
-`filename` takes a string representing the path to the workbook file.  
+**Params:**
 
-**Raises:**  
-`TableauVersionNotSupportedException` if the workbook is not a supported version
-`TableauInvalidFileException` if the file is not a valid tableau workbook file
+`filename` takes a string representing the path to the workbook file.
 
-**Methods:**  
-`Workbook.save(self):`  
-Saves any changes to the workbook to the existing file
+**Raises:**
 
-`Workbook.save_as(self, new_filename):`  
-Saves any changes to the workbook to a new file specified by the `new_file` parameter
+`TableauVersionNotSupportedException` if the workbook is not a supported version.
+`TableauInvalidFileException` if the file is not a valid tableau workbook file.
 
-**Properities:**  
-`self.worksheets:` Returns a list of worksheets found in the workbook  
-`self.datasources:` Returns a list of Datasource objects found in the workbook  
-`self.filename:` Returns the filename of the workbook  
+**Methods:**
+
+`Workbook.save(self):`
+Saves any changes to the workbook to the existing file.
+
+`Workbook.save_as(self, new_filename):`
+Saves any changes to the workbook to a new file specified by the `new_file` parameter.
+
+**Properities:**
+
+`self.worksheets:` Returns a list of worksheets found in the workbook.
+
+`self.datasources:` Returns a list of Datasource objects found in the workbook.
+
+`self.filename:` Returns the filename of the workbook.
 
 ## Datasources
 ```python
